@@ -857,7 +857,7 @@ h3 {
 .header-area .main-header-area {
   background: #fff;
   background: transparent;
-  padding: 25px 100px 25px 35px;
+  padding: 10px 10px 10px 10px;
 }
 
 /* line 21, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
@@ -999,7 +999,7 @@ h3 {
 /* line 103, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li a {
   color: #040E27;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: capitalize;
   font-weight: 400;
   display: inline-block;

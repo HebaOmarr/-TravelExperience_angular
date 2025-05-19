@@ -75,10 +75,10 @@
                                 <a href="#" style="color: var(--primary-color);">Forgot password?</a>
                             </div>
                              @if(failedLogin==true){
-
-                              <div class="nexus-footer --primary-color" >
-                               invalid Password 
-                            </div>
+ <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+     invalid Password 
+  </div>
+                          
                           }
 
                             <button type="submit" class="btn nexus-btn mb-4 fade-in delay-3">

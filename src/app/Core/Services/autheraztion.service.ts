@@ -31,4 +31,7 @@ export class AutheraztionService {
     this.UserData=null;
     this.router.navigate(['/home']);
   }
+  isLoggedIn(): boolean {
+  return !!localStorage.getItem('Token'); 
+}
 }
