@@ -1,0 +1,118 @@
+<div class="as">
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="nexus-card">
+                    <div class="nexus-header">
+                        <h2 class="nexus-title">Welcome Back</h2>
+                        <p class="nexus-subtitle">Sign in</p>
+                    </div>
+                    
+                    <div class="nexus-body">
+            <form [formGroup]="LoginForm" (submit)="submitdata()">
+                         <div class="mb-3 fade-in delay-3">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control nexus-input"
+                    id="email"
+                    formControlName="emailAddress"
+                    placeholder="Email Address"
+                  />
+                  <label for="email">Email Address</label>
+                   @if( LoginForm.get('emailAddress')?.invalid &&
+                  (LoginForm.get('emailAddress')?.touched ||
+                  LoginForm.get('emailAddress')?.dirty)){
+                  @if(LoginForm.get('emailAddress')?.hasError('required')) {
+                  <div class="text-danger">Email is required.</div>
+                  }
+                  @if(LoginForm.get('emailAddress')?.hasError('email')) {
+                  <div class="text-danger">Email format is invalid.</div>
+                  }}
+
+                </div>
+              </div>
+                            
+                              <div class="mb-3 position-relative fade-in delay-4">
+                <div class="form-floating">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    formControlName="password"
+                    class="form-control nexus-input"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <label for="password">Password</label>
+                    @if( LoginForm.get('password')?.invalid &&
+                  (LoginForm.get('password')?.touched ||
+                  LoginForm.get('password')?.dirty)){
+                  @if(LoginForm.get('password')?.hasError('required')) {
+                  <div class="text-danger">Password is required.</div>
+                  }
+                  @if(LoginForm.get('password')?.hasError('minlength')) {
+                  <div class="text-danger">Password must be at least 6 characters.</div>
+                  }}
+
+                </div>
+                <span
+                  class="password-toggle"
+                  id="togglePassword"
+                  (click)="togglePassword()"
+                >
+                  <i
+                    [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+                  ></i>
+                </span>
+              </div>
+                       
+                            <div class="remember-forgot fade-in delay-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe"     formControlName="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" style="color: var(--primary-color);">Forgot password?</a>
+                            </div>
+                             @if(failedLogin==true){
+
+                              <div class="nexus-footer --primary-color" >
+                               invalid Password 
+                            </div>
+                          }
+
+                            <button type="submit" class="btn nexus-btn mb-4 fade-in delay-3">
+                                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                            </button>
+                            
+                            <div class="nexus-divider fade-in delay-3">
+                                OR CONTINUE WITH
+                            </div>
+                            
+                            <div class="social-auth fade-in delay-3">
+                                <a href="#" class="social-btn" style="background-color: #3b5998;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-btn" style="background-color: #1da1f2;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-btn" style="background-color: #db4437;">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
+                           
+                          
+                            <div class="nexus-footer fade-in delay-3" >
+                                Don't have an account? <a [routerLink]="['/register']" >Sign Up</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+
+  
