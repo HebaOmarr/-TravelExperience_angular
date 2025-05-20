@@ -1,0 +1,68 @@
+.government-details {
+  direction: rtl;
+  text-align: right;
+}
+
+.government-details .card {
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.government-details .card-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 0.5rem;
+}
+
+.government-details .section-title {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.government-details .card-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.government-details .map-placeholder {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ddd;
+}
+
+.government-details .map-content {
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.government-details .map-content i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+  color: #e74c3c;
+}
+
+.government-details .map-content span {
+  font-size: 1.2rem;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .government-details .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .government-details .card-text {
+    font-size: 1rem;
+  }
+}

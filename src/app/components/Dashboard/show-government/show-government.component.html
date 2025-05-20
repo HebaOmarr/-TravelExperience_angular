@@ -1,0 +1,35 @@
+<div class="container mt-5 government-details mb-5">
+  <div class="card">
+    <div class="row g-0">
+      <!-- صورة الحكومة -->
+      <div class="col-md-4" *ngIf="government.image">
+        <img [src]="government.image" class="img-fluid rounded-start" [alt]="government.name">
+      </div>
+      
+      <div class="col-md-8">
+        <div class="card-body">
+          <h1 class="card-title">{{ government.name }}</h1>
+          
+          <div class="description-section mt-4">
+            <h3 class="section-title">description</h3>
+            <p class="card-text">{{ government.description }}</p>
+          </div>
+          
+          <div class="location-section mt-4">
+            <h3 class="section-title">Location:</h3>
+            <div class="row">
+              <div class="col-6">
+                <p><strong>latitude:</strong> {{ government.latitude }}</p>
+              </div>
+              <div class="col-6">
+                <p><strong>longitude:</strong> {{ government.longitude }}</p>
+              </div>
+            </div>
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

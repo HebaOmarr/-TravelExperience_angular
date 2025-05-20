@@ -37,6 +37,8 @@ this.loginsub=this.auth.Login(this.LoginForm.value).subscribe({
   next:(value)=>{
     localStorage.setItem('Token',value.token);
     this.auth.saveData();
+    this.auth.updateUserDataFromToken();
+
     this.router.navigate(['/home'])
     console.log(value);
   },

@@ -1,0 +1,78 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">{{ isEditMode ? 'Edit Governorate' : 'Add New Governorate' }}</h3>
+
+        </div>
+        <div class="card-body">
+          <form [formGroup]="govermantateForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name"
+                     [ngClass]="{ 'is-invalid': govermantateForm.get('name')?.touched && govermantateForm.get('name')?.invalid }">
+              <div *ngIf="govermantateForm.get('name')?.touched && govermantateForm.get('name')?.invalid" class="invalid-feedback">
+                <div *ngIf="govermantateForm.get('name')?.errors?.['required']">Name is required</div>
+                <div *ngIf="govermantateForm.get('name')?.errors?.['maxlength']">Name must be less than 100 characters</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" rows="3" formControlName="description"
+                        [ngClass]="{ 'is-invalid': govermantateForm.get('description')?.touched && govermantateForm.get('description')?.invalid }"></textarea>
+              <div *ngIf="govermantateForm.get('description')?.touched && govermantateForm.get('description')?.invalid" class="invalid-feedback">
+                <div *ngIf="govermantateForm.get('description')?.errors?.['required']">Description is required</div>
+                <div *ngIf="govermantateForm.get('description')?.errors?.['maxlength']">Description must be less than 500 characters</div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="latitude" class="form-label">Latitude</label>
+                <input type="text" class="form-control" id="latitude" formControlName="latitude"
+                       [ngClass]="{ 'is-invalid': govermantateForm.get('latitude')?.touched && govermantateForm.get('latitude')?.invalid }">
+                <div *ngIf="govermantateForm.get('latitude')?.touched && govermantateForm.get('latitude')?.invalid" class="invalid-feedback">
+                  <div *ngIf="govermantateForm.get('latitude')?.errors?.['required']">Latitude is required</div>
+                  <div *ngIf="govermantateForm.get('latitude')?.errors?.['pattern']">Please enter a valid latitude</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="longitude" class="form-label">Longitude</label>
+                <input type="text" class="form-control" id="longitude" formControlName="longitude"
+                       [ngClass]="{ 'is-invalid': govermantateForm.get('longitude')?.touched && govermantateForm.get('longitude')?.invalid }">
+                <div *ngIf="govermantateForm.get('longitude')?.touched && govermantateForm.get('longitude')?.invalid" class="invalid-feedback">
+                  <div *ngIf="govermantateForm.get('longitude')?.errors?.['required']">Longitude is required</div>
+                  <div *ngIf="govermantateForm.get('longitude')?.errors?.['pattern']">Please enter a valid longitude</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="imageFile" class="form-label">Image</label>
+              <input type="file" class="form-control" id="imageFile" (change)="onFileChange($event)" accept="image/*"
+                     [ngClass]="{ 'is-invalid': govermantateForm.get('imageFile')?.touched && govermantateForm.get('imageFile')?.invalid }">
+              <div *ngIf="govermantateForm.get('imageFile')?.touched && govermantateForm.get('imageFile')?.invalid" class="invalid-feedback">
+                Image is required
+              </div>
+              
+              <div *ngIf="previewImage" class="mt-3">
+                <img [src]="previewImage" class="img-thumbnail" style="max-height: 200px; max-width: 100%;">
+              </div>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-outline-secondary me-md-2" (click)="router.navigate(['/govall'])">Cancel</button>
+              <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
+                <span *ngIf="!isSubmitting">Submit</span>
+                <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span *ngIf="isSubmitting"> Submitting...</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
