@@ -38,6 +38,8 @@
               "entry": "server.ts"
             }
           },
+
+          
           "configurations": {
             "production": {
               "budgets": [

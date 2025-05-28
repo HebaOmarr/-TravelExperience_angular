@@ -20,20 +20,6 @@ import { MovieManagerComponent } from './DashBoard/movie-manager/movie-manager.c
 
 
 export const routes: Routes = [
-  // {path: 'auth' , component:AuthLayoutComponent, children:[
-  //   {path : 'movies', component:MovieListComponent},
-  //   {path :'login', component:LoginComponent},
-  //   {path : 'register', component:RegisterComponent},
-  //   {path:'forgetPassword', component:ForgetPasswordComponent}
-  // ]},
-  // {path: 'blank', component:BlankLayoutComponent,canActivate:[authGuard], children:[
-  //   {path:'home', component:HomeMoviesComponent},
-  //   {path:'wishlist', component:WishlistComponent},
-  //   {path:'search', component:SearchComponent},
-  //   {path:'tv', component:TvShowsComponent}
-
-  // ]},
-  // {path:'**', component:NotFoundComponent}
 
   {path: '' , component:AuthLayoutComponent, canActivate:[loggedGuard] ,children:[
     {path : '', redirectTo:'movies', pathMatch:'full'},
