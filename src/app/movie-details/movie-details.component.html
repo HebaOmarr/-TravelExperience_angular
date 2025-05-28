@@ -1,0 +1,59 @@
+<div class="row gy-5 py-5 align-items-center">
+    <!-- Loader -->
+    <div *ngIf="isLoadingDetails" class="d-flex justify-content-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  
+  
+    <div *ngIf="!isLoadingDetails" class="d-flex flex-wrap align-items-start">
+  
+      <div class="col-12 col-md-4 text-center mb-4 mb-md-0" >
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path"
+          [alt]="movieDetails.title"
+          class="img-fluid rounded shadow"
+          style="max-height: 500px; object-fit: cover;"
+        />
+      </div>
+  
+  
+      <div class="col-12 col-md-7 ms-md-4" >
+        <h2 class="fw-bold mb-5 fs-1" style="color: #e94560;">{{ movieDetails.original_title }}</h2>
+        <p class="fst-italic mb-5 fs-2" style="color:#fff !important">{{ movieDetails.tagline }}</p>
+  
+        <div class="mb-5">
+          <span *ngFor="let genre of movieDetails.genres"
+                class="badge bg-info text-light me-2 p-3 fs-6" style="color:#fff !important">
+           {{ genre.name }} 
+          </span>
+        </div>
+  
+        <ul class="list-unstyled mb-5 text-light">
+          <li class="mb-4" class="fs-4">
+            <strong  style="color:#fff !important">Vote: <span>{{ movieDetails.vote_average }}</span></strong> 
+          </li>
+          <li class="mb-4"  class="fs-4">
+            <strong  style="color:#fff !important">Vote Count: {{ movieDetails.vote_count }}</strong> 
+          </li>
+          <li class="mb-4" class="fs-4">
+            <strong  style="color:#fff !important">Popularity: {{ movieDetails.popularity }}</strong> 
+          </li>
+          <li class="mb-4" class="fs-4">
+            <strong  style="color:#fff !important">Release Date: {{ movieDetails.release_date }}</strong> 
+          </li>
+        </ul>
+  
+        <p class=" text-light mb-0 fs-5" style="font-weight: 200; opacity: 0.6;color:#fff !important">{{ movieDetails.overview }}</p>
+  
+  
+      </div>
+    </div>
+  
+    <h2 class="w-75 m-auto mt-5">Recomantaition-movie</h2>
+    <app-recomantaition-movie class="w-75 m-auto" [movieId]="movieDetails.id"></app-recomantaition-movie>
+  </div>
+  
+  
+  

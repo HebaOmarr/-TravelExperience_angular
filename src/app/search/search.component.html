@@ -1,0 +1,13 @@
+<h1 class="text-center my-4 text-white">Enjoy Watching Movies</h1>
+<div class="container">
+    <input #searchValue 
+           placeholder="Search for your Fav Movies"
+           type="text" 
+           id="search" 
+           name="search" 
+           class="form-control"
+           (input)="searchFunc(searchValue.value)">
+</div>
+  
+<app-movies></app-movies>
+

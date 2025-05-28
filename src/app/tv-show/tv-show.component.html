@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2 class="mb-4 mt-5"><i class="fa-solid fa-circle-play me-2"></i>Tv Popular</h2>
+    </div>
+   
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (tv of tvPopular; track tv.id) {
+        <div class="col col-md-4 mb-4">
+            <div  [routerLink]="['/tv-details', tv.id]" class="card h-100 shadow-sm movie-card">
+                  <img
+                    [src]="'https://image.tmdb.org/t/p/w500' + tv.backdrop_path"
+                    class="card-img-top"
+                    [alt]="tv.title"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{ tv.name }}</h5>
+                  </div>
+              </div>
+              
+        </div>
+    }
+    </div>
+    <nav class="mb-5 mt-5 d-flex justify-content-center">
+        <ul class="pagination pagination-lg shadow-sm">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="prevPage()">«</button>
+          </li>
+      
+          <li
+            class="page-item"
+            *ngFor="let page of paginationRange"
+            [class.active]="page === currentPage"
+          >
+            <button class="page-link" (click)="goToPage(page)">
+              {{ page }}
+            </button>
+          </li>
+      
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="nextPage()">»</button>
+          </li>
+        </ul>
+      </nav>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="movie-card">
+    <a [routerLink]="['/movie-details', movie.id]"><img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" /></a>
+    <div class="rating-badge">
+      
+      <i class="fas fa-star"></i> {{ movie.vote_average }}
+    </div>
+    <div class="wishlist-icon">
+     <!-- <i (click)="toggleWishlist(movie.id)">
+      {{ isProductWished(movie.id) ? '💖' : '🤍' }}
+     </i> -->
+     <i (click)="toggleWishlist(movie.id)">
+      <ng-container *ngIf="isProductWished(movie.id); else notWished">
+        <i class="fa-solid fa-heart"></i>
+      </ng-container>
+      <ng-template #notWished>
+        <i class="fa-regular fa-heart"></i>
+      </ng-template>
+    </i>
+    </div>
+    <div class="movie-title">
+      {{ movie.title || movie.name }} 
+    </div>
+</div>
+  
+  
+  
+  
+  

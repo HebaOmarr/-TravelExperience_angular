@@ -1,0 +1,60 @@
+<app-banner></app-banner>
+
+
+<div class="container">
+    <div class="w-25 float-end">
+        <label for="languageSelect" class="form-label mt-3">Select Language</label>
+        <select id="languageSelect"
+                [(ngModel)]="selectedLanguage"
+                (change)="onLanguageChange(selectedLanguage)"
+                class="form-select  text-black">
+          <option value="en">English</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+          <option value="ar">Arabic</option>
+        </select>
+    </div>
+    <div class="clearfix"></div>
+    <div class="d-flex align-items-center justify-content-between">
+        <h2 class="mb-4 mt-5"><i class="fa-solid fa-circle-play me-2"></i>Now Playing</h2>
+        <a routerLink="/login" class="mt-5 fs-4 text-decoration-none text-white">See All</a>
+    </div>
+   
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (movie of trendingItems; track movie.id) {
+        <div class="col col-md-4 mb-4">
+            <app-movie-item [movie]="movie"></app-movie-item>
+        </div>
+    }
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2 class="mb-4 mt-5"><i class="fa-solid fa-circle-play me-2"></i>Tv Popular</h2>
+        <a routerLink="/login" class="mt-5 fs-4 text-decoration-none text-white">See All</a>
+    </div>
+   
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (tv of tvPopular; track tv.id) {
+        <div class="col col-md-4 mb-4">
+            <app-tv-popular [tv]="tv"></app-tv-popular>
+        </div>
+    }
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2 class="mb-4 mt-5"><i class="fa-solid fa-circle-play me-2"></i>Tv Top Rated</h2>
+        <a routerLink="/login" class="mt-5 fs-4 text-decoration-none text-white">See All</a>
+    </div>
+   
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (tvtop of tvTop; track tvtop.id) {
+        <div class="col col-md-4 mb-4">
+            <app-tv-toprated  [tvtop]="tvtop"></app-tv-toprated>
+        </div>
+    }
+    </div>
+</div>

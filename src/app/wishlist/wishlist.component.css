@@ -1,0 +1,43 @@
+
+img {
+    
+    /* border-radius: 30px; */
+    transition: all 0.5s;
+  }
+  
+  /* img:hover {
+    transform: scale(1.1);
+  } */
+  
+  .inside {
+    border: 1px solid rgb(61, 61, 61);
+    /* padding: 15px; */
+    /* border-radius: 15px; */
+    background-color: #cfcfcf;
+    width: 100%;
+   
+    position: relative;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .overview {
+    overflow: hidden;
+    
+  }
+  
+  .delete {
+    background: black;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+  }
+  

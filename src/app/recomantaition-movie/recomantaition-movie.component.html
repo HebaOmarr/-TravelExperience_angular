@@ -1,0 +1,65 @@
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 py-4">
+
+    <div class="col" *ngFor="let movie of paginatedMovies">
+      <div class="card h-100 text-light shadow-sm border-0" style="background-color: #162447; height: 100%;">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          class="card-img-top rounded-top"
+          alt="movie poster"
+          style="object-fit: cover; height: 300px; cursor: pointer;"
+          (click)="goToTopAndSelect(movie)"
+        />
+        <div class="card-body d-flex flex-column justify-content-between" style="background-color:#fff">
+          <div>
+            <h6 class="card-title text-center fw-bold mb-2" style="color:rgba(18, 24, 41, 1)">{{ movie.title }}</h6>
+          </div>
+          <button
+            class="btn btn-outline-dark w-90 mt-2"
+            (click)="goToTopAndSelect(movie)"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+    <div *ngIf="isLoading" class="d-flex justify-content-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  
+    <!-- Pagination Controls -->
+  <nav *ngIf="!isLoading && totalPages > 1" class="my-4">
+    <ul class="pagination justify-content-center" style="background-color: transparent;">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link text-secondary border-0" style="background-color: transparent;" (click)="changePage(currentPage - 1)">
+          Previous
+        </button>
+      </li>
+  
+      <li
+        class="page-item"
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link text-secondary border-0"
+                [class.bg-white]="currentPage === i + 1"
+                style="background-color: transparent;"
+                (click)="changePage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+  
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link text-secondary border-0" style="background-color: transparent;" (click)="changePage(currentPage + 1)">
+          Next
+        </button>
+      </li>
+    </ul>
+</nav>
+  
+  

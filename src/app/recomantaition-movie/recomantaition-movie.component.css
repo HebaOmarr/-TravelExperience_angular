@@ -1,0 +1,36 @@
+.page-link {
+    cursor: pointer;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .page-item.disabled .page-link {
+    cursor: not-allowed;
+  }
+  
+  
+    @media (max-width: 576px) {
+      .card-img-top {
+        height: 400px !important;
+      }
+  
+      .card-body {
+        padding: 0.7rem !important;
+      }
+  
+      .card-title {
+        font-size: 14px;
+      }
+  
+      .btn {
+        font-size: 14px;
+        padding: 0.3rem 0.5rem;
+      }
+    }
+  
+  
+  

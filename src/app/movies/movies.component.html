@@ -1,0 +1,84 @@
+
+
+<div class="container">
+  <h1 *ngIf="filteredMovies.length === 0 && allMovies.length > 0" class="text-center text-danger my-5">
+    Movie not found. Try a different title.
+  </h1>
+  <div class="row">
+    <div
+      class="col-md-3 mb-4"
+      *ngFor="let movie of filteredMovies"
+    >
+      <div class="card h-100 shadow-sm"  style="cursor: pointer;">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+          class="card-img-top"
+          alt="{{ movie.title }}"
+          [routerLink]="['/movie-details', movie.id]"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text overview-text">
+             {{ movie.overview | truncate:100:true }}
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <small class="text-muted">Rating: {{ movie.vote_average }}</small>
+          <i (click)="toggleWishlist(movie.id)">
+          <ng-container *ngIf="isProductWished(movie.id); else notWished">
+            <i class="fa-solid fa-heart"></i>
+          </ng-container>
+          <ng-template #notWished>
+            <i class="fa-regular fa-heart"></i>
+          </ng-template>
+        </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center flex-wrap gap-3 my-4 p-3 bg-light rounded shadow-sm mb-5">
+
+  <button class="btn btn-outline-primary px-4 rounded-pill" (click)="goToFirstPage()" [disabled]="currentPage === 1">
+    ⏮️ First
+  </button>
+
+  <button class="btn btn-outline-primary px-4 rounded-pill" (click)="prevPage()" [disabled]="currentPage === 1">
+    ⬅️ Previous
+  </button>
+
+  <div class="d-flex gap-2">
+    <button
+      *ngFor="let page of getPageNumbers()"
+      class="btn btn-outline-secondary"
+      (click)="goToPageNumber(page)"
+      [class.active]="page === currentPage"
+    >
+      {{ page }}
+    </button>
+  </div>
+
+   <div class="d-flex align-items-center gap-2">
+    <label for="pageInput" class="fw-bold mb-0">Go to:</label>
+    <input
+      id="pageInput"
+      type="number"
+      class="form-control rounded-pill shadow-sm"
+      style="width: 80px;"
+      [(ngModel)]="inputPage"
+      (keyup.enter)="goToPage()"
+      [min]="1"
+      [max]="totalPages"
+      placeholder="#"
+    />
+  </div>
+
+  <button class="btn btn-outline-primary px-4 rounded-pill" (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Next ➡️
+  </button>
+
+  <button class="btn btn-outline-primary px-4 rounded-pill" (click)="goToLastPage()" [disabled]="currentPage === totalPages">
+    Last ⏭️
+  </button>
+</div>

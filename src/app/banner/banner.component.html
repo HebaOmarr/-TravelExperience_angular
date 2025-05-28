@@ -1,0 +1,26 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover z-n1">
+  <source src="assets/back.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Banner Content -->
+<div class="vh-100 position-relative overflow-hidden">
+  <div class="position-absolute top-0 start-0 h-100 w-100 text-white bg-dark bg-opacity-75 px-3 px-md-5 d-flex flex-column justify-content-center">
+    
+    <div class="container text-center text-md-start">
+      <h1 class="display-4 display-md-1 fw-bold mb-4">{{bannerTitle}}</h1>
+      <p class="fs-5 fs-md-4 mx-auto mx-md-0" style="max-width: 600px;">{{bannerOverview}}</p>
+      
+      <div class="mt-4 d-flex flex-column flex-sm-row justify-content-center justify-content-md-start gap-3">
+        <a class="btn btn-light text-dark px-4 py-2 fs-5" routerLink="/login">
+          <i class="fa-solid fa-play"></i> Play
+        </a>
+        <a class="btn btn-outline-light px-4 py-2 fs-5 " routerLink="/login">
+          More Info
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

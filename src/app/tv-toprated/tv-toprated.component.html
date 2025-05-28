@@ -1,0 +1,13 @@
+<div class="card h-100 shadow-sm movie-card">
+  <i class="fa-regular fa-heart fav-icon" (click)="move()"></i>
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + tvtop.backdrop_path"
+      class="card-img-top"
+      [alt]="tvtop.title"
+      (click)="move()"
+      
+    />
+    <div class="card-body">
+      <h5 class="card-title text-center" (click)="move()">{{ tvtop.name }}</h5>
+    </div>
+</div>
